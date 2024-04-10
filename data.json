@@ -1,6 +1,7 @@
 {
   "recettes": [
     {
+      "image": "assets/img/jpeg/poulet-rôti-aux-herbes.jpeg",
       "nom": "Poulet rôti aux herbes",
       "categorie": "Plat principal",
       "temps_preparation": "1 heure",
@@ -31,6 +32,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/salade-de-quinoa-aux-légumes-grillés.jpeg",
       "nom": "Salade de quinoa aux légumes grillés",
       "categorie": "Entrée",
       "temps_preparation": "30 minutes",
@@ -69,6 +71,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/tarte-aux-pommes.jpeg",
       "nom": "Tarte aux pommes",
       "categorie": "Dessert",
       "temps_preparation": "1 heure",
@@ -109,6 +112,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/soupe-de-lentilles.jpeg",
       "nom": "Soupe de lentilles",
       "categorie": "Entrée",
       "temps_preparation": "1 heure",
@@ -149,6 +153,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/pâtes-carbonara.jpeg",
       "nom": "Pâtes Carbonara",
       "categorie": "Plat principal",
       "temps_preparation": "20 minutes",
@@ -190,6 +195,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/risotto-aux-champignons.jpeg",
       "nom": "Risotto aux champignons",
       "categorie": "Plat principal",
       "temps_preparation": "40 minutes",
@@ -233,6 +239,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/salade-de-fruits-frais.jpeg",
       "nom": "Salade de fruits frais",
       "categorie": "Dessert",
       "temps_preparation": "20 minutes",
@@ -252,6 +259,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/ratatouille-provençale.jpeg",
       "nom": "Ratatouille provençale",
       "categorie": "Plat principal",
       "temps_preparation": "1 heure",
@@ -293,6 +301,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/salade-césar.jpeg",
       "nom": "Salade César",
       "categorie": "Entrée",
       "temps_preparation": "20 minutes",
@@ -332,7 +341,8 @@
       ]
     },
     {
-      "nom": "Risotto aux champignons",
+      "image": "assets/img/jpeg/risotto-avec-champignons.jpeg",
+      "nom": "Risotto avec champignons",
       "categorie": "Plat principal",
       "temps_preparation": "40 minutes",
       "ingredients": [
@@ -375,6 +385,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/muffins-aux-myrtilles.jpeg",
       "nom": "Muffins aux myrtilles",
       "categorie": "Dessert",
       "temps_preparation": "30 minutes",
@@ -416,6 +427,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/lasagnes-végétariennes.jpeg",
       "nom": "Lasagnes végétariennes",
       "categorie": "Plat principal",
       "temps_preparation": "1 heure 30 minutes",
@@ -458,6 +470,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/salade-niçoise.jpeg",
       "nom": "Salade niçoise",
       "categorie": "Entrée",
       "temps_preparation": "20 minutes",
@@ -501,6 +514,7 @@
       ]
     },
     {
+      "image": "assets/img/jpeg/tiramisu.jpeg",
       "nom": "Tiramisu",
       "categorie": "Dessert",
       "temps_preparation": "30 minutes (+ temps de repos)",
