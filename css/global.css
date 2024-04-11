@@ -31,7 +31,7 @@ button:hover {
   background-color: rgb(255, 255, 255);
 }
 
-.custom-button:hover.custom-hover-button {
+.custom-hover-button:hover {
   background-color: hsl(48, 100%, 59%);
 }
 
