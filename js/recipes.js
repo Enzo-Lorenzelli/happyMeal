@@ -1,4 +1,4 @@
-fetch("data.json")
+fetch("../data.json")
   .then((response) => response.json())
   .then((data) => {
     const recettes = data.recettes;
@@ -16,13 +16,14 @@ fetch("data.json")
         card.classList.add("card", "m-2", "pt-2", "pb-2", "shadow");
         const image = document.createElement("img");
         image.classList.add(
-          "card-img-top",
-          "object-fit-cover",
-              "rounded"
+        "card-img-top",
+        "object-fit-cover",
+        "rounded"
         );
     image.src = recette.image; // Utilise la propriété image de la recette
     image.width = 100; // Définit la largeur de l'image à 200 pixels
     image.height = 200; // Définit la hauteur de l'image à 150 pixels
+   
     const nom = document.createElement("h4");
     nom.textContent = recette.nom;
     nom.classList.add("bg-danger", "rounded", "text-center");
