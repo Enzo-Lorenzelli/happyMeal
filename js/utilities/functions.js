@@ -1,3 +1,6 @@
+getRecipes().then((data) => window.localStorage.setItem('recipes', JSON.stringify(data.recettes)));
+const RECIPES = JSON.parse(window.localStorage.getItem('recipes'));
+
 // Elements of the modal for the details of the recipe
 const modalDetailsRecipe = document.querySelector('#detailsRecipe');
 const modalDetailsRecipeName = modalDetailsRecipe.querySelector('#detailsRecipeName');
@@ -63,34 +66,59 @@ function showModalDetailsRecipe(recipeData) {
   modalDetailsRecipeName.innerText = recipeData.nom;
   modalDetailsRecipeCategory.innerText = recipeData.categorie;
   modalDetailsRecipePreparationTime.innerText =
-    'Temps de préparation: ' + recipeData.temps_preparation;
+    'Temps de préparation - ' + recipeData.temps_preparation;
 
   modalDetailsRecipeContent.innerHTML = `
     <h5 class="fw-bold" style="color: #ff3333">Ingrédients</h5>
-    <table class="table">
-      <tbody id="detailsRecipeIngredients"></tbody>
-    </table>
+  `;
+
+  // Generates ingredients of the recipe.
+  // If the array of ingredients is an array of objects, generates a table.
+  // If the array of ingredients is an array of strings, generates a list.
+  if (recipeData.ingredients.some((ingredient) => ingredient instanceof Object)) {
+    modalDetailsRecipeContent.innerHTML += `
+      <table class="table">
+        <tbody id="detailsRecipeIngredients"></tbody>
+      </table>
+    `;
+
+    const modalDetailsRecipeIngredients = modalDetailsRecipeContent.querySelector(
+      '#detailsRecipeIngredients'
+    );
+    recipeData.ingredients.forEach((ingredient) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${ingredient.nom}</td>
+        <td>${ingredient.quantite}</td>
+      `;
+      modalDetailsRecipeIngredients.appendChild(row);
+    });
+  } else {
+    modalDetailsRecipeContent.innerHTML += `
+    <ul
+      class="list-group list-group-flush"
+      id="detailsRecipeIngredients"
+    ></ul>
+    `;
+
+    const modalDetailsRecipeIngredients = modalDetailsRecipeContent.querySelector(
+      '#detailsRecipeIngredients'
+    );
+    recipeData.ingredients.forEach((ingredient) => {
+      const row = document.createElement('li');
+      row.classList.add('list-group-item');
+      row.innerText = ingredient;
+      modalDetailsRecipeIngredients.appendChild(row);
+    });
+  }
+
+  modalDetailsRecipeContent.innerHTML += `
     <h5 class="fw-bold" style="color: #ff3333">Étapes</h5>
     <ol
       class="list-group list-group-numbered list-group-flush"
       id="detailsRecipeSteps"
     ></ol>
   `;
-
-  // Generates the table of ingredients.
-  const modalDetailsRecipeIngredients = modalDetailsRecipeContent.querySelector(
-    '#detailsRecipeIngredients'
-  );
-  recipeData.ingredients.forEach((ingredient) => {
-    const row = document.createElement('tr');
-
-    row.innerHTML = `
-      <td>${ingredient.nom}</td>
-      <td>${ingredient.quantite}</td>
-    `;
-
-    modalDetailsRecipeIngredients.appendChild(row);
-  });
 
   // Generates the list of steps.
   const modalDetailsRecipeSteps = modalDetailsRecipeContent.querySelector('#detailsRecipeSteps');
@@ -102,28 +130,32 @@ function showModalDetailsRecipe(recipeData) {
   });
 }
 
-getRecipes().then((data) => {
-  data.recettes.forEach((recipe) => {
-    const option = document.createElement('option');
-    option.value = recipe.nom;
-    option.innerText = recipe.nom;
-    searchDataList.appendChild(option);
-  });
+// Generates all options of the search bar to make auto-completion
+RECIPES.forEach((recipe) => {
+  const option = document.createElement('option');
+  option.value = recipe.nom;
+  option.innerText = recipe.nom;
+  searchDataList.appendChild(option);
+});
 
-  searchButton.addEventListener('click', () => {
-    clearModalDetailsRecipe();
+// When the search button is clicked, show details of a recipe in a modal of the current value of the search bar.
+searchButton.addEventListener('click', () => {
+  clearModalDetailsRecipe();
 
-    if (searchBar.value === '') {
-      showErrorModalDetailsRecipe('La recherche est vide !');
-      return;
-    }
+  // Shows a error in the modal if the value of the search bar is empty.
+  if (searchBar.value === '') {
+    showErrorModalDetailsRecipe('La recherche est vide !');
+    return;
+  }
 
-    const find = data.recettes.filter((recipe) => recipe.nom === searchBar.value);
-    if (find.length === 0) {
-      showErrorModalDetailsRecipe('Le résultat introuvable !');
-      return;
-    }
+  const find = RECIPES.filter((recipe) => recipe.nom === searchBar.value);
 
-    showModalDetailsRecipe(find[0]);
-  });
+  // Shows a error in the modal if the value of the search bar gives no result.
+  if (find.length === 0) {
+    showErrorModalDetailsRecipe('Le résultat introuvable !');
+    return;
+  }
+
+  // Shows the details of the recipe in a modal.
+  showModalDetailsRecipe(find[0]);
 });

@@ -7,7 +7,7 @@ const mainContainer = document.querySelector('#mainContainer');
  * @param {number} index A looping index.
  */
 function addRecipeCard(parent, recipeData, index) {
-  const btnShowId = `btnShowDetails${index}`;
+  const btnShowDetailsId = `btnShowDetails${index}`;
   const column = document.createElement('div');
 
   column.classList.add('col');
@@ -20,23 +20,21 @@ function addRecipeCard(parent, recipeData, index) {
           <span class="card-text">${recipeData.categorie}</span>
         </div>
         <p class="card-text">Temps de préparation: ${recipeData.temps_preparation}</p>
-        <a id="${btnShowId}" href="#" data-bs-toggle="modal" data-bs-target="#detailsRecipe" class="btn btn-primary border-0 custom-button custom-hover-button text-black" style="width: fit-content">Voir les détails</a>
+        <a id="${btnShowDetailsId}" href="#" data-bs-toggle="modal" data-bs-target="#detailsRecipe" class="btn btn-primary border-0 custom-button custom-hover-button text-black" style="width: fit-content">Voir les détails</a>
       </div>
     </div>
   `;
 
   parent.appendChild(column);
-  const btnShow = document.querySelector(`#${btnShowId}`);
+  const btnShowDetails = document.querySelector(`#${btnShowDetailsId}`);
 
-  btnShow.addEventListener('click', () => {
+  btnShowDetails.addEventListener('click', () => {
     clearModalDetailsRecipe();
     showModalDetailsRecipe(recipeData);
   });
 }
 
-getRecipes().then((data) => {
-  const recipes = getRandomElements(data.recettes, 6);
-  recipes.forEach((recipe, i) => {
-    addRecipeCard(mainContainer, recipe, i);
-  });
+const randomRecipes = getRandomElements(RECIPES, 6);
+randomRecipes.forEach((recipe, i) => {
+  addRecipeCard(mainContainer, recipe, i);
 });
