@@ -33,7 +33,7 @@
             >Recettes</a
           >
           <a
-            href="favoris.html"
+            href="favorite.html"
             class="m-2 text-decoration-none link-nav fw-bold fs-5"
             >Favoris</a
           >
@@ -83,42 +83,55 @@
       </nav>
     </header>
     <main>
-      <h1 class="container text-center mt-5">SEPT MENUS POUR UNE SEMAINE</h1>
-      <hr />
-      <p class="container text-center">
-        Psst... On vous propose un outil génial pour organisé votre semaine !
-      </p>
-      <div class="d-flex justify-content-center">
-        <button
-          id="reset"
-          type="button"
-          class="btn btn-rounded custom-button shadow m-3 mb-5"
+      <!-- title part of the page -->
+      <section>
+        <h1 class="container text-center mt-5">SEPT MENUS POUR UNE SEMAINE</h1>
+        <hr />
+        <p class="container text-center">
+          Psst... On vous propose un outil génial pour organisé votre semaine !
+        </p>
+        <div class="d-flex justify-content-center">
+          <button
+            id="reset"
+            type="button"
+            class="btn btn-rounded custom-button shadow m-3 mb-5"
+          >
+            Cliquez pour anticiper votre semaine
+          </button>
+        </div>
+      </section>
+      <!-- menu board from JSON -->
+      <section>
+        <table
+          id="board"
+          class="container table table-striped-columns shadow m-auto"
         >
-          Cliquez pour anticiper votre semaine
-        </button>
-      </div>
-
-      <table id="board" class="container table table-striped-columns shadow m-auto">
-        <thead class="table table-dark">
-          <tr>
-            <td></td>
-            <td class="text-center px-5">Lundi</td>
-            <td class="text-center px-5">Mardi</td>
-            <td class="text-center px-5">Mercredi</td>
-            <td class="text-center px-5">Jeudi</td>
-            <td class="text-center px-5">Vendredi</td>
-            <td class="text-center px-5">Samedi</td>
-            <td class="text-center px-5">Dimanche</td>
-          </tr>
-        </thead>
-        <tbody id="bodyBoard"></tbody>
-      </table>
-      <div class="d-flex justify-content-center">
-        <button id="export" type="button" class="btn custom-button shadow-sm mt-5 mb-5 text-center">
-          Exporter mon planning <i class="bi bi-download ms-2"></i>
-        </button>
-      </div>
+          <thead class="table table-dark">
+            <tr>
+              <td></td>
+              <td class="text-center px-5">Lundi</td>
+              <td class="text-center px-5">Mardi</td>
+              <td class="text-center px-5">Mercredi</td>
+              <td class="text-center px-5">Jeudi</td>
+              <td class="text-center px-5">Vendredi</td>
+              <td class="text-center px-5">Samedi</td>
+              <td class="text-center px-5">Dimanche</td>
+            </tr>
+          </thead>
+          <tbody id="bodyBoard"></tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+          <button
+            id="export"
+            type="button"
+            class="btn custom-button shadow-sm mt-5 mb-5 text-center"
+          >
+            Exporter mon planning <i class="bi bi-download ms-2"></i>
+          </button>
+        </div>
+      </section>
     </main>
+
     <footer class="footer" style="background-color: #ff3333">
       <section class="mt-5 d-flex align-content-center">
         <div class="container-fluid d-flex flex-row">
