@@ -1,6 +1,6 @@
 async function getRecipes() {
   try {
-    const response = await fetch(window.location.origin + '/data.json');
+    const response = await fetch('../data.json');
 
     if (!response.ok || response.status !== 200) {
       console.error(`[${response.status}] Impossible to fetch recipes at '${response.url}'`);
