@@ -1,1 +1,40 @@
+.text-color {
+  color: #ffdb4d;
+}
 
+.link-nav {
+  color: black;
+  text-decoration: none;
+}
+
+.link-nav:hover {
+  color: #ffdb4d;
+}
+
+.link-foot:hover {
+  color: white;
+}
+
+button:hover {
+  background-color: red;
+}
+
+.custom-icon {
+  font-size: 25px;
+}
+
+.custom-button {
+  background-color: #ffdb4d;
+}
+
+.custom-button:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.custom-hover-button:hover {
+  background-color: hsl(48, 100%, 59%);
+}
+
+.custom-icon-paiements {
+  font-size: 60px;
+}
